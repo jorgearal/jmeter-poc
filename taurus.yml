@@ -1,0 +1,16 @@
+execution:
+- scenario: simple
+
+scenarios:
+  simple:
+    script: smoke.jmx
+
+modules:
+  jmeter:
+    properties:
+      type: smoke
+      host: localhost
+      port: 3000
+      threads: 1
+      rampup: 3
+      duration: 15

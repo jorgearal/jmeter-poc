@@ -1,0 +1,28 @@
+{
+  "name": "jmeter-poc",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "nodemon ./src/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "smoke-test": "jmeter -Jtype=smoke -Jhost=localhost -Jport=3000 -Jthreads=1 -Jrampup=1 -Jduration=1 -n -t ./smoke.jmx -l ./testreports/smoke/log.xls",
+    "smoke-report": "jmeter -g ./testreports/smoke/log.xls -o ./testreports/smoke/reports/",
+    "load-test": "jmeter -Jtype=load -Jhost=localhost -Jport=3000 -Jthreads=1 -Jrampup=30 -Jduration=10 -n -t ./smoke.jmx",
+    "load-report": "jmeter -g ./testreports/smoke/log.xls -o ./testreports/load/reports/"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jorgearal/jmeter-poc.git"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "engineStrict": true
+}
